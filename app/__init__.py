@@ -14,8 +14,6 @@ class LoginWindow(tk.Tk):
         super().__init__()
         self.title("Expense PRO")
         self.minsize(400, 100)
-        logo = PhotoImage(file='app/img/logo.png')
-        self.iconphoto(False, logo)
 
 
 
@@ -74,8 +72,6 @@ class MainWindow(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Expense Pro")
-        logo = PhotoImage(file='app/img/logo.png')
-        self.iconphoto(False, logo)
 
 
 
@@ -136,7 +132,6 @@ class RegisterWindow(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Expense Pro")
-        logo = PhotoImage(file='app/img/logo.png')
 
 
 
@@ -229,7 +224,7 @@ class ReadWindow(tk.Tk):
         super().__init__()
         self.boxes = 2
         self.title("Expense Pro")
-        logo = PhotoImage(file='app/img/logo.png')
+        self.total_valor=0
 
         self.DefaultFont = font.nametofont("TkDefaultFont")
         self.TextFont = font.Font(family="@Microsoft JhengHei UI", weight=font.BOLD)
@@ -244,6 +239,7 @@ class ReadWindow(tk.Tk):
         self.despesas = Listbox(self.content_frame, listvariable=StringVar(value=lista_despesas))
 
 
+        self.total = ttk.Label(self.content_frame, text=f"valor total: {self.total_valor}")
         self.content_frame.grid(column=0, row=0, sticky=(N, W, E, S))
         self.head_text.grid(column=0, row=0, sticky=tk.W)
         self.window_text.grid(column=0, row=1)
@@ -258,7 +254,9 @@ class ReadWindow(tk.Tk):
             self.compra.grid(column=0, row=self.boxes)
             self.boxes += 1
 
-        self.voltar_button.grid(column=0, row=self.boxes+1)
+        self.total.grid(column=0, row=self.boxes+1)
+        self.voltar_button.grid(column=0, row=self.boxes+2)
+
 
 ""
 
@@ -270,8 +268,6 @@ class ModifyWindow(tk.Tk):
         super().__init__()
         self.title("Expense Pro")
         global lista_despesas
-        #logo = PhotoImage(file='app/img/logo.png')
-        #self.iconphoto(False, logo)
 
 
         self.busca_registro = tk.IntVar()
@@ -349,7 +345,6 @@ class ModifyWindow(tk.Tk):
 
 
 
-class AdminWindow(tk.Tk):
+class AdminWindow(MainWindow):
     def __init__(self):
         super().__init__()
-        self.title("Expense Pro")
