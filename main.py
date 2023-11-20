@@ -1,5 +1,4 @@
 import app
-from app import funcionario
 
 
 if __name__ == "__main__":
