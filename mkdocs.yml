@@ -1,0 +1,5 @@
+site_name: Expense Prod Documetation
+nav:
+  - Home: index.md
+  - Documentation: Documentação
+theme: readthedocs
